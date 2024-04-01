@@ -1,0 +1,11 @@
+asgiref==3.7.2
+backports.zoneinfo==0.2.1
+Django==4.2.11
+environs==11.0.0
+gunicorn==21.2.0
+marshmallow==3.21.1
+packaging==24.0
+python-dotenv==1.0.1
+sqlparse==0.4.4
+typing-extensions==4.10.0
+whitenoise==6.6.0
