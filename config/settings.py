@@ -139,9 +139,3 @@ LOGIN_REDIRECT_URL = 'home'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.%s.EmailBackend' % env.str('EMAIL_BACKEND', default='console')
-EMAIL_HOST = env.str('EMAIL_HOST', default='localhost')
-EMAIL_HOST_USER = env.str('EMAIL_HOST_USER', default='')
-EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD', default='')
-EMAIL_PORT = env.int('EMAIL_PORT', default=25)
-EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=False)
-DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL', default='CESAR@localhost')
