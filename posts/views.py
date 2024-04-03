@@ -20,7 +20,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
   template_name = 'posts/new.html'
   model = Post
-  fields = ['title', 'subtitle','body']
+  fields = ['title', 'subtitle','body', 'is_draft']
 
   def form_valid(self, form):
     form.instance.author = self.request.user
@@ -49,3 +49,4 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     if self.request.user == post.author:
       return True
     return False
+

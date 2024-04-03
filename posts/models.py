@@ -10,9 +10,10 @@ class Post(models.Model):
   author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
   body = models.TextField()
   created_on = models.DateTimeField(auto_now_add=True)
+  is_draft = models.BooleanField(default=True)
 
   def __str__(self):
     return self.title
-  
+
   def get_absolute_url(self):
     return reverse("detail", args=[self.id])
