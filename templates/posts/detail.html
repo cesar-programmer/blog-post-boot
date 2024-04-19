@@ -3,11 +3,19 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-  <h1>{{ post.title }}</h1>
-  <h3>{{ post.subtitle }}</h3>
-  <h6>By {{ post.author }}</h6>
-  <small>Created on {{ post.created_on }}</small>
-  <p>{{ post.body }}</p>
-  <a href="{% url 'edit' post.id %}" class="btn btn-primary">Edit</a>
-  <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">{{ post.title }}</h1>
+      <h3 class="card-subtitle mb-2 text-muted">{{ post.subtitle }}</h3>
+      <h6 class="text-muted">By {{ post.author }}</h6>
+      <small class="text-muted">Created on {{ post.created_on }}</small>
+      <p class="mt-3">{{ post.body }}</p>
+    </div>
+    <div class="card-footer">
+      <a href="{% url 'edit' post.id %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>
 {% endblock %}

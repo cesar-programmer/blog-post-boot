@@ -3,20 +3,32 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-  <h1>Posts</h1>
+<style>
+  .container-custom {
+    max-width: 1200px;
+  }
+  .card-custom {
+    height: 100%;
+  }
+</style>
+<div class="container mt-2 container-custom">
+  <h1 class="text-center mb-4">Posts</h1>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     {% for post in object_list %}
     <div class="col">
-      <div class="card h-100">
-        <div class="card-body">
-          <p class="card-text">By {{ post.author }}</p>
-          <h5 class="card-title">{{ post.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ post.subtitle }}</h6>
-          <p class="card-text">{{ post.body|truncatechars:128 }}</p>
+      <div class="card mb-3 shadow-sm card-custom">
+        <div class="card-header py-1">
+          <h6 class="my-0 font-weight-normal">{{ post.title }}</h6>
+        </div>
+        <div class="card-body py-3">
+          <p class="card-text mb-1"><small class="text-muted">{{ post.subtitle }}</small></p>
+          <p class="card-text mb-1"><small class="text-muted">{{ post.body|truncatechars:128 }}</small></p>
+          <p class="card-text mb-1"><small class="text-muted">{{ post.author }}</small></p>
           <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read more</a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
+</div>
 {% endblock %}
